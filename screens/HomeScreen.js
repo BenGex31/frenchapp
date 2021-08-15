@@ -23,6 +23,10 @@ export default function HomeScreen() {
     }
   };
 
+  const goNewsPage = () => {
+    navigation.navigate('News')
+  }
+
   return (
     <View style={styles.container}>
       
@@ -36,6 +40,15 @@ export default function HomeScreen() {
         />
       </View>
       <Text style={styles.text}>Your UID is: {user.uid} </Text>
+      <View style={{ flex: 1, justifyContent: 'center'}}>
+        <IconButton
+          name='Go news page'
+          size={24}
+          color='#fff'
+          onPress={() => goNewsPage()}
+        />
+      </View>
+
     </View>
   );
 }
@@ -44,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: "#e93b81",
+    backgroundColor: "#000",
     paddingTop: 50,
     paddingHorizontal: 12,
   },

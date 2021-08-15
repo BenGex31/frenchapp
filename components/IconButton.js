@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const IconButton = ({ color, size, onPress, name, type }) => {
+const IconButton = ({ color, size, onPress, name, type, containerStyle }) => {
   return (
     <Pressable
       style={args => {
@@ -15,7 +15,8 @@ const IconButton = ({ color, size, onPress, name, type }) => {
             {
               opacity: 0.5,
               backgroundColor: 'transparent'
-            }
+            },
+            containerStyle
           ];
         }
 
