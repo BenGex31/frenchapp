@@ -8,7 +8,7 @@ import { Text, View } from "react-native";
 const API = "2474fba8daed4dbfa7136f82eb4d6491";
 
 const NewsScreen = () => {
-  const [newsState, setNewsState] = useState("");
+  const [newsState, setNewsState] = useState([]);
 
   useEffect(() => {
     async function getNews() {
@@ -28,6 +28,7 @@ const NewsScreen = () => {
 
         // all necessary data are here
         console.log(data.articles)
+        setNewsState(data.articles) 
 
 
       } catch (error) {
@@ -41,7 +42,7 @@ const NewsScreen = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
-      <Text>newsState</Text>
+{newsState.map(item => <Text>{item.author}</Text>)}
     </View>
   );
 };
