@@ -43,9 +43,9 @@ const NewsScreen = () => {
   console.log("news state: ", newsState);
 
   return (
-    <ScrollView style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
+    <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
         {newsState.map(item => <NewsItem author={item.author} description={item.description} content={item.content} />)}
-    </ScrollView>
+    </View>
   );
 };
 
