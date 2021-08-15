@@ -21,9 +21,9 @@ const IconButton = ({ color, size, onPress, name, type }) => {
 
         return [styles.base, { opacity: 1, backgroundColor: 'transparent' }];
       }}
-      onPress={onPress}
+      
     >
-      <Button title={name} size={size} color={color} type={type} />
+      <Button onPress={onPress} title={name} size={size} color={color} type={type} />
     </Pressable>
   );
 };

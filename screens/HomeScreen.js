@@ -1,5 +1,6 @@
 /** @format */
 
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -12,16 +13,16 @@ const auth = Firebase.auth();
 
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
+  const navigation = useNavigation()
+  
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      then(() => {
-        console.log('Sign-out successful')
-      })
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <View style={styles.container}>
       
