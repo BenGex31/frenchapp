@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import NewsItem from "../components/NewsItem";
 // import getNews from "../API/News";
 
 const API = "2474fba8daed4dbfa7136f82eb4d6491";
@@ -41,9 +43,9 @@ const NewsScreen = () => {
   console.log("news state: ", newsState);
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
-{newsState.map(item => <Text>{item.author}</Text>)}
-    </View>
+    <ScrollView style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
+        {newsState.map(item => <NewsItem author={item.author} description={item.description} content={item.content} />)}
+    </ScrollView>
   );
 };
 
