@@ -80,7 +80,7 @@ export default function LoginScreen({ navigation }) {
                 onPress={onLogin}
                 backgroundColor='#f57c00'
                 title='Login'
-                tileColor='#fff'
+                titleColor='#fff'
                 titleSize={20}
                 containerStyle={{
                 marginBottom: 24
@@ -89,7 +89,7 @@ export default function LoginScreen({ navigation }) {
             <RNButton
                 onPress={() => navigation.navigate('Signup')}
                 title='Go to Signup'
-                color='#fff'
+                color='red'
             />
       </View>
   )
@@ -99,7 +99,7 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#e93b81',
+      backgroundColor: '#000',
       paddingTop: 50,
       paddingHorizontal: 12
     },
