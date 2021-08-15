@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { IconButton } from "../components";
+import { IconButton, InputField } from "../components";
 import Firebase from "../config/firebase";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 
