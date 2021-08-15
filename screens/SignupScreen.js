@@ -10,6 +10,7 @@ const auth = Firebase.auth();
 
 export default function SignupScreen({ navigation }) {
   const [email, setEmail] = useState("");
+  const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(true);
   const [rightIcon, setRightIcon] = useState("eye");
@@ -74,6 +75,25 @@ export default function SignupScreen({ navigation }) {
         value={password}
         onChangeText={(text) => setPassword(text)}
         handlePasswordVisibility={handlePasswordVisibility}
+      />
+      <InputField
+        inputStyle={{
+          fontSize: 14,
+        }}
+        containerStyle={{
+          backgroundColor: "#fff",
+          marginBottom: 20,
+        }}
+        // leftIcon='lock'
+        placeholder='Enter lastname'
+        autoCapitalize='none'
+        autoCorrect={false}
+        // secureTextEntry={passwordVisibility}
+        // textContentType='password'
+        // rightIcon={rightIcon}
+        value={lastname}
+        onChangeText={(text) => setLastname(text)}
+        // handlePasswordVisibility={handlePasswordVisibility}
       />
       {signupError ? <ErrorMessage error={signupError} visible={true} /> : null}
       <Button
