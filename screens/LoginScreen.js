@@ -3,10 +3,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button as RNButton } from "react-native";
+import { StyleSheet, Text, View, Button as RNButton, Image } from "react-native";
 
 import { Button, InputField, ErrorMessage } from "../components";
 import Firebase from "../config/firebase";
+
+import frenchAppImg from '../assets/frenchappweb.jpeg'
 
 const auth = Firebase.auth();
 
@@ -40,7 +42,8 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar style='dark-content' />
-      <Text style={styles.title}>Login</Text>
+      <Image style={styles.image} source={frenchAppImg} />
+      <Text style={styles.title}>FrenchApp{"&"}Web</Text>
       <InputField
         inputStyle={{
           fontSize: 14,
@@ -50,7 +53,7 @@ export default function LoginScreen({ navigation }) {
           marginBottom: 20,
         }}
         leftIcon='email'
-        placeholder='Enter email'
+        placeholder='Email'
         autoCapitalize='none'
         keyboardType='email-address'
         textContentType='emailAddress'
@@ -67,7 +70,7 @@ export default function LoginScreen({ navigation }) {
           marginBottom: 20,
         }}
         leftIcon='lock'
-        placeholder='Enter password'
+        placeholder='Password'
         autoCapitalize='none'
         autoCorrect={false}
         secureTextEntry={passwordVisibility}
@@ -80,7 +83,7 @@ export default function LoginScreen({ navigation }) {
       {loginError ? <ErrorMessage error={loginError} visible={true} /> : null}
       <Button
         onPress={onLogin}
-        backgroundColor='#f57c00'
+        backgroundColor='#0b85ff'
         title='Login'
         titleColor='#fff'
         titleSize={20}
@@ -91,7 +94,7 @@ export default function LoginScreen({ navigation }) {
       <RNButton
         onPress={() => navigation.navigate("Signup")}
         title='Go to Signup'
-        color='red'
+        color='#5a3eff'
       />
     </View>
   );
@@ -100,15 +103,22 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#eaf1fb",
     paddingTop: 50,
     paddingHorizontal: 12,
     justifyContent: "center",
+    alignItems: "center"
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginBottom: 24,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: "#fff",
+    fontSize: 26,
+    fontWeight: "bold",
+    fontStyle: "italic",
+    color: "#0d204b",
     alignSelf: "center",
     paddingBottom: 24,
   },
