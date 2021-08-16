@@ -87,5 +87,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#0d204b",
     textAlign: "center",
+    lineHeight: 30
   },
 });
