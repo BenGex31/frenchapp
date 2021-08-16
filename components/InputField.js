@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const InputField = ({
   leftIcon,
-  iconColor = "#000",
+  iconColor = "#5a3eff",
   rightIcon,
   inputStyle,
   containerStyle,
