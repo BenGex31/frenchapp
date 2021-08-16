@@ -34,7 +34,7 @@ export default function HomeScreen() {
       <View>
         <Text style={styles.title}>Welcome to your news app! {user.email}</Text>
       </View>
-      <View>
+      <View style={{alignItems: "center"}}>
         <Image source={newsImage} style={{ height: 200, width: 360 }} />
       </View>
       <View
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
     color: "#0d204b",
     textAlign: "center",
