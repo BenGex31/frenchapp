@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { FlatList, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NewsItem from "../components/NewsItem";
-import IconNews from "react-native-vector-icons/FontAwesome";
 import { StyleSheet } from "react-native";
 
 const API = "2474fba8daed4dbfa7136f82eb4d6491";
@@ -59,12 +58,14 @@ const NewsScreen = () => {
   };
 
   return (
-    <FlatList
-      data={newsState}
-      keyExtractor={myKeyExtractor}
-      extraData={newsState}
-      renderItem={renderItem}
-    />
+    <SafeAreaView>
+      <FlatList
+        data={newsState}
+        keyExtractor={myKeyExtractor}
+        extraData={newsState}
+        renderItem={renderItem}
+      />
+    </SafeAreaView>
   );
 };
 
