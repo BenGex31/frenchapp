@@ -22,6 +22,7 @@ const NewsItem = ({
         </View>
         <View>
           <Text style={styles.author}>by {author}</Text>
+          <Text>{publishedAt}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 0.5,
     borderColor: "black",
+    marginHorizontal: 10
   },
   containerTitle: {
     flexDirection: "row",
@@ -46,9 +48,12 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 15,
+    textAlign: "left",
+    width: 200
   },
   author: {
     textAlign: "right",
+    marginRight: 10
   },
 });
 
