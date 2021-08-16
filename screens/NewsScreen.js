@@ -49,7 +49,7 @@ const NewsScreen = () => {
   };
 
   const renderItem = ({ item }) => {
-    return <NewsItem title={item.title} author={item.author} />;
+    return <NewsItem title={item.title} author={item.author} publishedAt={item.publishedAt} />;
   };
 
   return (
