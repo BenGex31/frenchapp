@@ -49,37 +49,32 @@ const NewsScreen = () => {
   };
 
   const renderItem = ({ item }) => {
-    return <NewsItem title={item.title} author={item.author} publishedAt={item.publishedAt} />;
+    return (
+      <NewsItem
+        title={item.title}
+        author={item.author}
+        publishedAt={item.publishedAt}
+      />
+    );
   };
 
   return (
-    <SafeAreaView>
-      <View style={styles.header}>
-        <Text style={styles.title}>Your news list</Text>
-        <IconNews
-          style={{ marginBottom: 15 }}
-          name='newspaper-o'
-          size={30}
-          color='#0d204b'
-        />
-      </View>
-      <FlatList
-        data={newsState}
-        keyExtractor={myKeyExtractor}
-        extraData={newsState}
-        renderItem={renderItem}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={newsState}
+      keyExtractor={myKeyExtractor}
+      extraData={newsState}
+      renderItem={renderItem}
+    />
   );
 };
 
 const styles = StyleSheet.create({
   header: {
+    flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#38d8ff",
     marginHorizontal: 10,
     borderRadius: 10,
-    marginBottom: 10,
   },
   title: {
     fontWeight: "bold",
