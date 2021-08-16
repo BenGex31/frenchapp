@@ -3,8 +3,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import newsImage from "../assets/news.jpeg"
-import Icon from "react-native-vector-icons/SimpleLineIcons";
+import newsImage from "../assets/news.jpeg";
+import IconLogout from "react-native-vector-icons/SimpleLineIcons";
+import IconNews from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { IconButton } from "../components";
 import Firebase from "../config/firebase";
@@ -34,15 +35,7 @@ export default function HomeScreen() {
         <Text style={styles.title}>Welcome to your news app! {user.email}</Text>
       </View>
       <View>
-        <Image source={newsImage} style={{height: 200, width: 360}} />
-      </View>
-      <View>
-        <IconButton
-          name='Go news page'
-          size={24}
-          color='#fff'
-          onPress={() => goNewsPage()}
-        />
+        <Image source={newsImage} style={{ height: 200, width: 360 }} />
       </View>
       <View
         style={{
@@ -50,17 +43,31 @@ export default function HomeScreen() {
           alignItems: "center",
           justifyContent: "center",
         }}>
-        <Icon
-          style={{ marginRight: 5 }}
-          name='logout'
-          size={30}
-          color='#0b85ff'
+        <IconButton
+          name='See news'
+          size={24}
+          color='#fff'
+          onPress={() => goNewsPage()}
         />
+        <IconNews name='newspaper-variant-outline' size={50} color='#0b85ff' />
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
         <IconButton
           name='logout'
           size={24}
           color='#fff'
           onPress={() => handleSignOut()}
+        />
+        <IconLogout
+          style={{ marginLeft: 5 }}
+          name='logout'
+          size={40}
+          color='#0b85ff'
         />
       </View>
     </View>
