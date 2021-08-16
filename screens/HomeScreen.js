@@ -1,11 +1,12 @@
 /** @format */
 
 import { useNavigation } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import React, { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
+import newsImage from "../assets/news.jpeg"
+import Icon from "react-native-vector-icons/SimpleLineIcons";
 
-import { IconButton, InputField } from "../components";
+import { IconButton } from "../components";
 import Firebase from "../config/firebase";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 
@@ -13,8 +14,8 @@ const auth = Firebase.auth();
 
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
-  const navigation = useNavigation()
-  
+  const navigation = useNavigation();
+
   const handleSignOut = async () => {
     try {
       await auth.signOut();
@@ -24,23 +25,18 @@ export default function HomeScreen() {
   };
 
   const goNewsPage = () => {
-    navigation.navigate('News')
-  }
+    navigation.navigate("News");
+  };
 
   return (
     <View style={styles.container}>
-      
-      <View style={styles.row}>
-        <Text style={styles.title}>Welcome {user.email}!</Text>
-        <IconButton
-          name='logout'
-          size={24}
-          color='#fff'
-          onPress={() => handleSignOut()}
-        />
+      <View>
+        <Text style={styles.title}>Welcome to your news app! {user.email}</Text>
       </View>
-      <Text style={styles.text}>Your UID is: {user.uid} </Text>
-      <View style={{ flex: 1, justifyContent: 'center'}}>
+      <View>
+        <Image source={newsImage} style={{height: 200, width: 360}} />
+      </View>
+      <View>
         <IconButton
           name='Go news page'
           size={24}
@@ -48,7 +44,25 @@ export default function HomeScreen() {
           onPress={() => goNewsPage()}
         />
       </View>
-
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+        <Icon
+          style={{ marginRight: 5 }}
+          name='logout'
+          size={30}
+          color='#0b85ff'
+        />
+        <IconButton
+          name='logout'
+          size={24}
+          color='#fff'
+          onPress={() => handleSignOut()}
+        />
+      </View>
     </View>
   );
 }
@@ -56,28 +70,15 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    backgroundColor: "#000",
-    paddingTop: 50,
-    paddingHorizontal: 12,
-  },
-  row: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 24,
+    flexDirection: "column",
+    backgroundColor: "#eaf1fb",
+    marginTop: 50,
+    justifyContent: "space-evenly",
   },
   title: {
-    flex: 1,
     fontSize: 24,
-    fontWeight: "600",
-    color: "#fff",
-  },
-  text: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: "normal",
-    color: "#fff",
+    fontWeight: "bold",
+    color: "#0d204b",
+    textAlign: "center",
   },
 });
