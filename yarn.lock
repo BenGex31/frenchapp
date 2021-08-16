@@ -4790,6 +4790,11 @@ mockdate@^3.0.2:
   resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-3.0.5.tgz#789be686deb3149e7df2b663d2bc4392bc3284fb"
   integrity sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==
 
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -5420,11 +5425,6 @@ react-native-svg@^12.1.1:
   dependencies:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
-
-react-native-text-gradient@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/react-native-text-gradient/-/react-native-text-gradient-0.1.7.tgz#2b7a4c3dab59d50bb292b184f1d4ac214f73f06b"
-  integrity sha512-QuEwW8TMKBNI5ejmDFu3/SDJh5CIzOi5eL1xNzq8yBEwU5wHaloBxhQ9K0zc16GPkr3KgSUDyU4olQtiYje4mw==
 
 react-native-vector-icons@^8.1.0:
   version "8.1.0"
