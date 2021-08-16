@@ -2,6 +2,7 @@
 
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import moment from "moment";
 
 const NewsItem = ({
   author,
@@ -13,6 +14,7 @@ const NewsItem = ({
   urlToImage,
   publishedAt,
 }) => {
+  const correctFormatDate = moment(publishedAt).format("DD/MM/YYYY");
   return (
     <TouchableOpacity>
       <View style={styles.container}>
@@ -22,7 +24,7 @@ const NewsItem = ({
         </View>
         <View>
           <Text style={styles.author}>by {author}</Text>
-          <Text style={styles.author}>{publishedAt}</Text>
+          <Text style={styles.author}>Published at : {correctFormatDate}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -36,12 +38,12 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     marginHorizontal: 10,
-    marginVertical: 5
+    marginVertical: 5,
   },
   containerTitle: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10
+    padding: 10,
   },
   image: {
     width: 100,
@@ -51,12 +53,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
     textAlign: "left",
-    width: 200
+    width: 200,
   },
   author: {
     textAlign: "right",
     marginRight: 10,
-    marginBottom: 5
+    marginBottom: 5,
   },
 });
 
