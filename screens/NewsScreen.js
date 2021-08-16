@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { FlatList, View, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import NewsItem from "../components/NewsItem";
-// import getNews from "../API/News";
+import IconNews from "react-native-vector-icons/FontAwesome";
+import { StyleSheet } from "react-native";
 
 const API = "2474fba8daed4dbfa7136f82eb4d6491";
 
@@ -29,7 +30,6 @@ const NewsScreen = () => {
           });
 
         // all necessary data are here
-        console.log(data.articles);
         setNewsState(data.articles);
       } catch (error) {
         console.log(error);
@@ -38,19 +38,54 @@ const NewsScreen = () => {
     getNews();
   }, []);
 
-  console.log("news state: ", newsState);
+  newsState.forEach((item, i) => {
+    item.id = i + 1;
+  });
+
+  console.log(newsState);
+
+  const myKeyExtractor = (item) => {
+    return item.id.toString();
+  };
+
+  const renderItem = ({ item }) => {
+    return <NewsItem title={item.title} author={item.author} />;
+  };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
-      {newsState.map((item) => (
-        <NewsItem
-          author={item.author}
-          description={item.description}
-          content={item.content}
+    <SafeAreaView>
+      <View style={styles.header}>
+        <Text style={styles.title}>Your news list</Text>
+        <IconNews
+          style={{ marginBottom: 15 }}
+          name='newspaper-o'
+          size={30}
+          color='#0d204b'
         />
-      ))}
-    </View>
+      </View>
+      <FlatList
+        data={newsState}
+        keyExtractor={myKeyExtractor}
+        extraData={newsState}
+        renderItem={renderItem}
+      />
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    alignItems: "center",
+    backgroundColor: "#38d8ff",
+    marginHorizontal: 10,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 30,
+    marginBottom: 15,
+  },
+});
 
 export default NewsScreen;
