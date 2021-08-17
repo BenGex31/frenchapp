@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { FlatList, View, Text } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NewsItem from "../components/NewsItem";
 import { StyleSheet } from "react-native";
@@ -11,6 +11,7 @@ const API = "2474fba8daed4dbfa7136f82eb4d6491";
 
 const NewsScreen = () => {
   const [newsState, setNewsState] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getNews() {
@@ -30,6 +31,7 @@ const NewsScreen = () => {
 
         // all necessary data are here
         setNewsState(data.articles);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -62,13 +64,17 @@ const NewsScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: "#eaf1fb"}}>
-      <FlatList
-        data={newsState}
-        keyExtractor={myKeyExtractor}
-        extraData={newsState}
-        renderItem={renderItem}
-      />
+    <SafeAreaView style={{ backgroundColor: "#eaf1fb" }}>
+      {loading ? (
+        <ActivityIndicator size="large" color="#5a3eff" />
+      ) : (
+        <FlatList
+          data={newsState}
+          keyExtractor={myKeyExtractor}
+          extraData={newsState}
+          renderItem={renderItem}
+        />
+      )}
     </SafeAreaView>
   );
 };
