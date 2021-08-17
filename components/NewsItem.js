@@ -48,6 +48,7 @@ const NewsItem = ({
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                   <Text style={styles.modalText}>{content}</Text>
+                  <Text>{url}</Text>
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
@@ -90,11 +91,12 @@ const styles = StyleSheet.create({
   image: {
     width: 110,
     height: 100,
+    marginTop: 5,
   },
   title: {
     fontWeight: "bold",
     fontSize: 15,
-    textAlign: "left",
+    textAlign: "center",
     width: 200,
     color: "#eaf1fb",
     marginBottom: 10,
