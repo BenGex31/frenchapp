@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   image: {
-    width: 100,
+    width: 120,
     height: 100,
   },
   title: {
