@@ -1,27 +1,28 @@
 /** @format */
 
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { FlatList, ActivityIndicator } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  FlatList,
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NewsItem from "../components/NewsItem";
-import { StyleSheet } from "react-native";
-
-const API = "2474fba8daed4dbfa7136f82eb4d6491";
+import { SearchBar, Button } from "react-native-elements";
 
 const NewsScreen = () => {
   const [newsState, setNewsState] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function getNews() {
       try {
         let req = new Request(
-          "https://newsapi.org/v2/everything?" +
-            "q=React&" +
-            "from=2021-08-15&" +
-            "sortBy=popularity&" +
-            "apiKey=2474fba8daed4dbfa7136f82eb4d6491"
+          "https://newsapi.org/v2/top-headlines?country=fr&apiKey=2474fba8daed4dbfa7136f82eb4d6491"
         );
         let data = await fetch(req)
           .then((response) => response.json())
@@ -31,9 +32,11 @@ const NewsScreen = () => {
 
         // all necessary data are here
         setNewsState(data.articles);
+        console.log(data);
         setLoading(false);
       } catch (error) {
         console.log(error);
+        setError(true);
       }
     }
     getNews();
@@ -42,8 +45,6 @@ const NewsScreen = () => {
   newsState.forEach((item, i) => {
     item.id = i + 1;
   });
-
-  console.log(newsState);
 
   const myKeyExtractor = (item) => {
     return item.id.toString();
@@ -65,25 +66,53 @@ const NewsScreen = () => {
 
   return (
     <SafeAreaView style={{ backgroundColor: "#eaf1fb" }}>
-      {loading ? (
-        <ActivityIndicator size="large" color="#5a3eff" />
+      {error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>
+            There is a problem with database API...
+          </Text>
+        </View>
+      ) : loading ? (
+        <View style={styles.loading_container}>
+          <ActivityIndicator size='large' color='#5a3eff' />
+        </View>
       ) : (
-        <FlatList
-          data={newsState}
-          keyExtractor={myKeyExtractor}
-          extraData={newsState}
-          renderItem={renderItem}
-        />
+        <View>
+          <FlatList
+            data={newsState}
+            keyExtractor={myKeyExtractor}
+            extraData={newsState}
+            renderItem={renderItem}
+          />
+        </View>
       )}
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
+  loading_container: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 100,
+    bottom: 0,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  errorContainer: {
+    alignItems: "center",
+    marginTop: 50,
+    backgroundColor: "#0b85ff",
+    marginHorizontal: 15,
+    padding: 10,
+    borderRadius: 10,
+  },
+  errorText: {
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 30,
-    marginBottom: 15,
+    textAlign: "center",
+    color: "#0d204b",
   },
 });
 
