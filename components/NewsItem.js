@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 5,
+    backgroundColor: "#0d204b"
   },
   containerTitle: {
     flexDirection: "row",
@@ -54,11 +55,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "left",
     width: 200,
+    color: "#eaf1fb"
   },
   author: {
     textAlign: "right",
     marginRight: 10,
     marginBottom: 5,
+    color: "#eaf1fb"
   },
 });
 
