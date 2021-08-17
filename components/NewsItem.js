@@ -52,7 +52,7 @@ const NewsItem = ({
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
-                    <Text style={styles.textStyle}>Hide Modal</Text>
+                    <Text style={styles.textStyle}>Close</Text>
                   </Pressable>
                 </View>
               </View>
