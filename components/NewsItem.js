@@ -20,7 +20,10 @@ const NewsItem = ({
       <View style={styles.container}>
         <View style={styles.containerTitle}>
           <Image source={{ uri: urlToImage }} style={styles.image} />
-          <Text style={styles.title}>{title}</Text>
+          <View>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.description}>{description}</Text>
+          </View>
         </View>
         <View>
           <Text style={styles.author}>by {author}</Text>
