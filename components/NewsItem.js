@@ -3,6 +3,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import moment from "moment";
+import newsImage from "../assets/news.jpeg";
 
 const NewsItem = ({
   author,
@@ -19,7 +20,11 @@ const NewsItem = ({
     <TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.containerTitle}>
-          <Image source={{ uri: urlToImage }} style={styles.image} />
+          {urlToImage === null ? (
+            <Image source={newsImage} style={styles.image} />
+          ) : (
+            <Image source={{ uri: urlToImage }} style={styles.image} />
+          )}
           <View>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.description}>{description}</Text>
