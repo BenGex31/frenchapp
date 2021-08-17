@@ -56,6 +56,7 @@ const NewsScreen = () => {
         content={item.content}
         description={item.description}
         source={item.source.name}
+        urlToImage={item.urlToImage}
       />
     );
   };
