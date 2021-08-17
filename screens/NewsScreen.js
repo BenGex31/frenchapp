@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#38d8ff",
+    backgroundColor: "#0d204b",
     marginHorizontal: 10,
     borderRadius: 10,
   },
