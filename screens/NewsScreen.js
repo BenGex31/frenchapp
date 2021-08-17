@@ -53,6 +53,8 @@ const NewsScreen = () => {
         title={item.title}
         author={item.author}
         publishedAt={item.publishedAt}
+        content={item.content}
+        description={item.description}
       />
     );
   };
@@ -70,13 +72,6 @@ const NewsScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#0d204b",
-    marginHorizontal: 10,
-    borderRadius: 10,
-  },
   title: {
     fontWeight: "bold",
     fontSize: 30,
