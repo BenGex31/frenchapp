@@ -24,7 +24,7 @@ const NewsItem = ({
         </View>
         <View>
           <Text style={styles.author}>by {author}</Text>
-          <Text style={styles.author}>Published at : {correctFormatDate}</Text>
+          <Text style={styles.author}>Published at : {correctFormatDate}</Text>s
         </View>
       </View>
     </TouchableOpacity>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 5,
-    backgroundColor: "#0d204b"
+    backgroundColor: "#0d204b",
   },
   containerTitle: {
     flexDirection: "row",
@@ -55,14 +55,25 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "left",
     width: 200,
-    color: "#eaf1fb"
+    color: "#eaf1fb",
+    marginBottom: 10,
+  },
+  description: {
+    width: 200,
+    color: "#eaf1fb",
+    fontSize: 10,
+  },
+  webArticle: {
+    textAlign: "right",
+    color: "#eaf1fb",
+    fontSize: 6,
   },
   author: {
     textAlign: "right",
     marginRight: 10,
     marginBottom: 5,
     color: "#eaf1fb",
-    fontSize: 6
+    fontSize: 6,
   },
 });
 
