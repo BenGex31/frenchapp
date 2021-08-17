@@ -18,7 +18,7 @@ const NewsScreen = () => {
       try {
         let req = new Request(
           "https://newsapi.org/v2/everything?" +
-            "q=Apple&" +
+            "q=React&" +
             "from=2021-08-15&" +
             "sortBy=popularity&" +
             "apiKey=2474fba8daed4dbfa7136f82eb4d6491"
