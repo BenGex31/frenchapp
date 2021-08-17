@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NewsItem from "../components/NewsItem";
-import { SearchBar, Button } from "react-native-elements";
 
 const NewsScreen = () => {
   const [newsState, setNewsState] = useState([]);
