@@ -27,7 +27,8 @@ const NewsItem = ({
         </View>
         <View>
           <Text style={styles.author}>by {author}</Text>
-          <Text style={styles.author}>Published at : {correctFormatDate}</Text>s
+          <Text style={styles.author}>Source: {source}</Text>
+          <Text style={styles.author}>Published at : {correctFormatDate}</Text>
         </View>
       </View>
     </TouchableOpacity>
