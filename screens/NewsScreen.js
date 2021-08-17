@@ -62,7 +62,7 @@ const NewsScreen = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: "#eaf1fb"}}>
       <FlatList
         data={newsState}
         keyExtractor={myKeyExtractor}
