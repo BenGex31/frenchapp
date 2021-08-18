@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
   },
   containerTitle: {
     flexDirection: "row",
-    justifyContent: "space-between",
   },
   image: {
     width: 140,
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "flex-end",
   },
   modalView: {
     margin: 20,
@@ -154,6 +153,7 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {
     backgroundColor: "lightgrey",
+    marginLeft: 5,
   },
   buttonClose: {
     marginTop: 10,
