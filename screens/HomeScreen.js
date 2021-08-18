@@ -16,6 +16,7 @@ const auth = Firebase.auth();
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
   const navigation = useNavigation();
+  console.log(user);
 
   const handleSignOut = async () => {
     try {
@@ -32,9 +33,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>Welcome to your news app! {user.email}</Text>
+        <Text style={styles.title}>Welcome</Text>
+        {user.displayName === null ? (
+          <Text style={styles.title}>John / Jane Doe</Text>
+        ) : (
+          <Text style={styles.title}>{user.displayName}</Text>
+        )}
       </View>
-      <View style={{alignItems: "center"}}>
+      <View style={{ alignItems: "center" }}>
         <Image source={newsImage} style={{ height: 200, width: 360 }} />
       </View>
       <View
@@ -86,6 +92,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#0d204b",
     textAlign: "center",
-    lineHeight: 30
+    lineHeight: 30,
   },
 });
