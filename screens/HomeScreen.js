@@ -3,7 +3,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
-import newsImage from "../assets/news.jpeg";
 import IconLogout from "react-native-vector-icons/SimpleLineIcons";
 import IconNews from "react-native-vector-icons/MaterialCommunityIcons";
 import { LinearGradient } from "expo-linear-gradient";
