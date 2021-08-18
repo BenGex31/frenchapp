@@ -11,8 +11,9 @@ const ErrorMessage = ({ error, visible }) => {
 
 const styles = StyleSheet.create({
   errorText: {
-    color: '#fdca40',
-    fontSize: 20,
+    color: 'red',
+    fontSize: 15,
+    textAlign: 'center',
     marginBottom: 10,
     fontWeight: '600'
   }
