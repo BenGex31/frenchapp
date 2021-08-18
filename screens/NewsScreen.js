@@ -14,7 +14,6 @@ import NewsItem from "../components/NewsItem";
 const NewsScreen = () => {
   const [newsState, setNewsState] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
   const [error, setError] = useState(false);
 
   useEffect(() => {
