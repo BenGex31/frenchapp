@@ -7,7 +7,8 @@ import { StyleSheet, Text, View, Button as RNButton } from "react-native";
 
 import { Button, InputField, ErrorMessage } from "../components";
 import Firebase from "../config/firebase";
-import "firebase/firestore";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const auth = Firebase.auth();
 
@@ -36,15 +37,8 @@ export default function SignupScreen({ navigation }) {
         await auth.createUserWithEmailAndPassword(email, password);
         const currentUser = Firebase.auth().currentUser;
         currentUser.updateProfile({
-          displayName: firstname + " " + lastname
-        })
-
-        /*const db = Firebase.firestore();
-        db.collection("users").doc(currentUser.uid).set({
-          email: currentUser.email,
-          lastname: lastname,
-          firstname: firstname,
-        });*/
+          displayName: firstname + " " + lastname,
+        });
       }
     } catch (error) {
       setSignupError(error.message);
@@ -52,9 +46,10 @@ export default function SignupScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style='dark-content' />
       <Text style={styles.title}>Create new account</Text>
+      <MaterialCommunityIcons style={{marginBottom: 12}} name='account-plus' size={40} color='#5a3eff' />
       <InputField
         inputStyle={{
           fontSize: 14,
@@ -99,7 +94,7 @@ export default function SignupScreen({ navigation }) {
           backgroundColor: "#fff",
           marginBottom: 20,
         }}
-        leftIcon='account'
+        leftIcon='account-edit'
         placeholder='Firstname'
         autoCapitalize='none'
         autoCorrect={false}
@@ -114,7 +109,7 @@ export default function SignupScreen({ navigation }) {
           backgroundColor: "#fff",
           marginBottom: 20,
         }}
-        leftIcon='account'
+        leftIcon='account-edit'
         placeholder='Lastname'
         autoCapitalize='none'
         autoCorrect={false}
@@ -138,7 +133,7 @@ export default function SignupScreen({ navigation }) {
         title='Go to Login'
         color='#0d204b'
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -156,7 +151,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#0d204b",
     alignSelf: "center",
-    paddingBottom: 24,
+    paddingBottom: 12,
     fontStyle: "italic",
   },
 });
