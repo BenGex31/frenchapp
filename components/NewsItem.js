@@ -37,7 +37,11 @@ const NewsItem = ({
         )}
         <View style={{ marginBottom: 5 }}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.author}>by {author}</Text>
+          {author === null ? (
+            <Text style={styles.author}>Unknown author</Text>
+          ) : (
+            <Text style={styles.author}>by {author}</Text>
+          )}
           <Text style={styles.author}>Source: {source}</Text>
           <Text style={styles.author}>Published at : {correctFormatDate}</Text>
           <View style={styles.centeredView}>
@@ -81,7 +85,6 @@ const NewsItem = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //borderWidth: 0.5,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     marginHorizontal: 10,
@@ -120,6 +123,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 10,
     textAlign: "justify",
+    fontWeight: "bold",
   },
   webArticle: {
     textAlign: "right",
@@ -173,6 +177,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "justify",
     fontSize: 10,
+    fontWeight: "bold",
   },
 });
 
