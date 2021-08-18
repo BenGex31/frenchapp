@@ -55,7 +55,6 @@ const NewsItem = ({
               }}>
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                  <Text style={styles.description}>{description}</Text>
                   <Text style={styles.modalText}>{content}</Text>
                   <Button
                     type='clear'
@@ -65,7 +64,7 @@ const NewsItem = ({
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
-                    <Text style={styles.textStyle}>Close</Text>
+                    <Text style={styles.textStyleClose}>Close</Text>
                   </Pressable>
                 </View>
               </View>
@@ -73,7 +72,7 @@ const NewsItem = ({
             <Pressable
               style={[styles.button, styles.buttonOpen]}
               onPress={() => setModalVisible(true)}>
-              <Text style={styles.textStyle}>Read more...</Text>
+              <Text style={styles.textStyleOpen}>Read more...</Text>
             </Pressable>
           </View>
         </View>
@@ -109,20 +108,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: 10,
+    fontSize: 11,
     textAlign: "left",
     width: 180,
     color: "black",
-    marginBottom: 5,
-    marginVertical: 10,
+    marginVertical: 4,
     marginLeft: 10,
-  },
-  description: {
-    marginBottom: 5,
-    color: "black",
-    fontSize: 10,
-    textAlign: "justify",
-    fontWeight: "bold",
   },
   webArticle: {
     textAlign: "right",
@@ -143,7 +134,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "lightgrey",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -162,20 +153,27 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "white",
+    backgroundColor: "lightgrey",
   },
   buttonClose: {
     marginTop: 10,
     backgroundColor: "white",
+    padding: 10,
   },
-  textStyle: {
+  textStyleOpen: {
     color: "black",
     fontWeight: "bold",
+    fontSize: 10,
+  },
+  textStyleClose: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 20,
   },
   modalText: {
     marginBottom: 15,
     textAlign: "justify",
-    fontSize: 10,
+    fontSize: 15,
     fontWeight: "bold",
   },
 });
