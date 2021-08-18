@@ -10,6 +10,8 @@ import {
   Modal,
   Pressable,
 } from "react-native";
+import { Button } from "react-native-elements";
+import * as WebBrowser from "expo-web-browser";
 import moment from "moment";
 import newsImage from "../assets/news.jpeg";
 
@@ -33,9 +35,11 @@ const NewsItem = ({
         ) : (
           <Image source={{ uri: urlToImage }} style={styles.image} />
         )}
-        <View>
+        <View style={{ marginBottom: 5 }}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.description}>{description}</Text>
+          <Text style={styles.author}>by {author}</Text>
+          <Text style={styles.author}>Source: {source}</Text>
+          <Text style={styles.author}>Published at : {correctFormatDate}</Text>
           <View style={styles.centeredView}>
             <Modal
               animationType='slide'
@@ -47,8 +51,13 @@ const NewsItem = ({
               }}>
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
+                  <Text style={styles.description}>{description}</Text>
                   <Text style={styles.modalText}>{content}</Text>
-                  <Text>{url}</Text>
+                  <Button
+                    type='clear'
+                    title='Go to the web site'
+                    onPress={() => WebBrowser.openBrowserAsync(url)}
+                  />
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
@@ -65,11 +74,6 @@ const NewsItem = ({
           </View>
         </View>
       </View>
-      <View>
-        <Text style={styles.author}>by {author}</Text>
-        <Text style={styles.author}>Source: {source}</Text>
-        <Text style={styles.author}>Published at : {correctFormatDate}</Text>
-      </View>
     </View>
   );
 };
@@ -77,34 +81,45 @@ const NewsItem = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderWidth: 0.5,
-    borderRadius: 10,
+    //borderWidth: 0.5,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
     marginHorizontal: 10,
     marginVertical: 5,
-    backgroundColor: "#0d204b",
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+
+    elevation: 9,
   },
   containerTitle: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10,
   },
   image: {
-    width: 110,
-    height: 100,
-    marginTop: 5,
+    width: 140,
+    height: 120,
   },
   title: {
     fontWeight: "bold",
-    fontSize: 15,
-    textAlign: "center",
-    width: 200,
-    color: "#eaf1fb",
-    marginBottom: 10,
+    fontSize: 10,
+    textAlign: "left",
+    width: 180,
+    color: "black",
+    marginBottom: 5,
+    marginVertical: 10,
+    marginLeft: 10,
   },
   description: {
-    width: 200,
-    color: "#eaf1fb",
+    marginBottom: 5,
+    color: "black",
     fontSize: 10,
+    textAlign: "justify",
   },
   webArticle: {
     textAlign: "right",
@@ -112,17 +127,16 @@ const styles = StyleSheet.create({
     fontSize: 6,
   },
   author: {
-    textAlign: "right",
-    marginRight: 10,
-    marginBottom: 5,
-    color: "#eaf1fb",
+    textAlign: "left",
+    marginBottom: 1,
+    marginLeft: 10,
+    color: "black",
     fontSize: 6,
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
+    alignItems: "flex-start",
   },
   modalView: {
     margin: 20,
@@ -141,22 +155,24 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 20,
-    padding: 10,
+    padding: 5,
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#5a3eff",
+    backgroundColor: "white",
   },
   buttonClose: {
-    backgroundColor: "#5a3eff",
+    marginTop: 10,
+    backgroundColor: "white",
   },
   textStyle: {
-    color: "#38d8ff",
+    color: "black",
     fontWeight: "bold",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: "justify",
+    fontSize: 10,
   },
 });
 
