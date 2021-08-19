@@ -55,7 +55,6 @@ const NewsScreen = () => {
         author={item.author}
         publishedAt={item.publishedAt}
         content={item.content}
-        description={item.description}
         source={item.source.name}
         urlToImage={item.urlToImage}
         url={item.url}
