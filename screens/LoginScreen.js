@@ -43,7 +43,7 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <StatusBar style='dark-content' />
       <Image style={styles.image} source={frenchAppImg} />
-      <Text style={styles.title}>FrenchApp{"&"}Web</Text>
+      <Text style={styles.title}>FrenchApp{"&"}Web / News</Text>
       <InputField
         inputStyle={{
           fontSize: 14,
