@@ -3,7 +3,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button as RNButton } from "react-native";
+import { StyleSheet, Text, Button as RNButton } from "react-native";
 
 import { Button, InputField, ErrorMessage } from "../components";
 import Firebase from "../config/firebase";
@@ -35,10 +35,11 @@ export default function SignupScreen({ navigation }) {
     try {
       if (email !== "" && password !== "") {
         await auth.createUserWithEmailAndPassword(email, password);
-        const currentUser = Firebase.auth().currentUser;
-        currentUser.updateProfile({
-          displayName: firstname + " " + lastname,
-        });
+        const userProfile = auth.currentUser;
+        userProfile
+          .updateProfile({
+            displayName: firstname + " " + lastname,
+          });
       }
     } catch (error) {
       setSignupError(error.message);
@@ -49,7 +50,12 @@ export default function SignupScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <StatusBar style='dark-content' />
       <Text style={styles.title}>Create new account</Text>
-      <MaterialCommunityIcons style={{marginBottom: 12}} name='account-plus' size={40} color='#5a3eff' />
+      <MaterialCommunityIcons
+        style={{ marginBottom: 12 }}
+        name='account-plus'
+        size={40}
+        color='#5a3eff'
+      />
       <InputField
         inputStyle={{
           fontSize: 14,
