@@ -55,7 +55,14 @@ export default function HomeScreen() {
               Read all the latest news wherever you want
             </Text>
             <Button
-              icon={<IconNews name='newspaper' color='#ffffff' size={15} />}
+              icon={
+                <IconNews
+                  style={{ marginRight: 5 }}
+                  name='newspaper'
+                  color='#ffffff'
+                  size={15}
+                />
+              }
               buttonStyle={{
                 borderRadius: 10,
                 marginLeft: 0,
