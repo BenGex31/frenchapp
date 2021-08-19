@@ -17,7 +17,7 @@ const auth = Firebase.auth();
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
   const navigation = useNavigation();
-  //console.log(user);
+  console.log(user);
 
   const handleSignOut = async () => {
     try {
@@ -39,9 +39,9 @@ export default function HomeScreen() {
         <Text style={styles.title}>FrenchApp{"&"}Web</Text>
         <Card containerStyle={{ backgroundColor: "#eaf1fb", borderRadius: 10 }}>
           {user.displayName === null ? (
-            <Card.Title h1={true}>Welcome John / Jane Doe</Card.Title>
+            <Card.Title h4={true}>Welcome</Card.Title>
           ) : (
-            <Card.Title h4={true}>Welcome {user.displayName}</Card.Title>
+            <Card.Title h4={true}>{user.displayName}</Card.Title>
           )}
           <Card.Divider />
           <Card.Image source={whatsnews} />
