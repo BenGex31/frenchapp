@@ -2,17 +2,17 @@
 
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import IconLogout from "react-native-vector-icons/SimpleLineIcons";
 import IconNews from "react-native-vector-icons/MaterialCommunityIcons";
+import whatsnews from "../assets/whatsnews.jpeg";
 import { LinearGradient } from "expo-linear-gradient";
+import { Card, Button } from "react-native-elements";
 
-import { IconButton } from "../components";
 import Firebase from "../config/firebase";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 
 const auth = Firebase.auth();
-const { width, height } = Dimensions.get("window");
 
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
@@ -36,49 +36,57 @@ export default function HomeScreen() {
       colors={["#0d204b", "#5a3eff", "#38d8ff", "#0b85ff"]}
       style={styles.background}>
       <View style={styles.container}>
-        <View style={styles.containerTitle}>
-          <Text style={styles.title}>Welcome</Text>
+        <Text style={styles.title}>FrenchApp{"&"}Web</Text>
+        <Card containerStyle={{ backgroundColor: "#eaf1fb" }}>
           {user.displayName === null ? (
-            <Text style={styles.title}>John / Jane Doe</Text>
+            <Card.Title>Welcome John / Jane Doe</Card.Title>
           ) : (
-            <Text style={styles.title}>{user.displayName}</Text>
+            <Card.Title>Welcome {user.displayName}</Card.Title>
           )}
-        </View>
+          <Card.Divider />
+          <Card.Image source={whatsnews} />
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ marginVertical: 10, textAlign: "center" }}>
+              Read all the latest news wherever you want
+            </Text>
+            <Button
+              icon={<IconNews name='newspaper' color='#ffffff' size={15} />}
+              buttonStyle={{
+                borderRadius: 10,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+                width: 120,
+              }}
+              title='SEE NEWS'
+              onPress={() => goNewsPage()}
+            />
+          </View>
+        </Card>
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
           }}>
-          <IconButton
-            name='See news'
-            size={24}
-            color='#fff'
-            onPress={() => goNewsPage()}
-          />
-          <IconNews
-            name='newspaper-variant-outline'
-            size={50}
-            color='#eaf1fb'
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-          <IconButton
-            name='logout'
-            size={24}
-            color='#fff'
+          <Button
+            icon={
+              <IconLogout
+                style={{ marginRight: 5 }}
+                name='logout'
+                size={15}
+                color='#eaf1fb'
+              />
+            }
+            buttonStyle={{
+              borderRadius: 10,
+              marginLeft: 0,
+              marginRight: 0,
+              marginBottom: 0,
+              width: 120,
+            }}
+            title='LOG OUT'
             onPress={() => handleSignOut()}
-          />
-          <IconLogout
-            style={{ marginLeft: 5 }}
-            name='logout'
-            size={40}
-            color='#eaf1fb'
           />
         </View>
       </View>
@@ -90,30 +98,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: "bold",
+    fontStyle: "italic",
+    color: "#0b85ff",
+    alignSelf: "center",
   },
   background: {
     flex: 1,
-  },
-  containerTitle: {
-    borderRadius: 50,
-    marginHorizontal: 80,
-    padding: 20,
-    backgroundColor: "#1d1f29",
-    shadowColor: "#eaf1fb",
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.59,
-    shadowRadius: 16,
-    elevation: 24,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#eaf1fb",
-    textAlign: "center",
-    lineHeight: 30,
   },
 });
