@@ -39,14 +39,19 @@ export default function HomeScreen() {
         <Text style={styles.title}>FrenchApp{"&"}Web</Text>
         <Card containerStyle={{ backgroundColor: "#eaf1fb", borderRadius: 10 }}>
           {user.displayName === null ? (
-            <Card.Title h1={true} >Welcome John / Jane Doe</Card.Title>
+            <Card.Title h1={true}>Welcome John / Jane Doe</Card.Title>
           ) : (
             <Card.Title h4={true}>Welcome {user.displayName}</Card.Title>
           )}
           <Card.Divider />
           <Card.Image source={whatsnews} />
           <View style={{ alignItems: "center" }}>
-            <Text style={{ marginVertical: 10, textAlign: "center", fontWeight: "bold" }}>
+            <Text
+              style={{
+                marginVertical: 10,
+                textAlign: "center",
+                fontWeight: "bold",
+              }}>
               Read all the latest news wherever you want
             </Text>
             <Button
