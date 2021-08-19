@@ -30,7 +30,7 @@ const NewsScreen = () => {
 
         // all necessary data are here
         setNewsState(data.articles);
-        console.log(data);
+        //console.log(data);
         setLoading(false);
       } catch (error) {
         console.log(error);
