@@ -18,7 +18,6 @@ import newsImage from "../assets/news.jpeg";
 const NewsItem = ({
   author,
   content,
-  description,
   title,
   source,
   url,
