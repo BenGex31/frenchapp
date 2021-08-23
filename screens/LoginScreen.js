@@ -3,13 +3,20 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button as RNButton, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button as RNButton,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import Constants from "expo-constants";
 
 import { Button, InputField, ErrorMessage } from "../components";
 import Firebase from "../config/firebase";
 
-import frenchAppImg from '../assets/frenchappweb.jpeg'
+import frenchAppImg from "../assets/frenchappweb.jpeg";
 
 const auth = Firebase.auth();
 
@@ -81,6 +88,11 @@ export default function LoginScreen({ navigation }) {
         onChangeText={(text) => setPassword(text)}
         handlePasswordVisibility={handlePasswordVisibility}
       />
+      <TouchableOpacity onPress={() => navigation.navigate("ResetPassword")}>
+        <View>
+          <Text>Forgot password ?</Text>
+        </View>
+      </TouchableOpacity>
       {loginError ? <ErrorMessage error={loginError} visible={true} /> : null}
       <Button
         onPress={onLogin}
@@ -90,6 +102,7 @@ export default function LoginScreen({ navigation }) {
         titleSize={20}
         containerStyle={{
           marginBottom: 24,
+          marginTop: 20,
         }}
       />
       <RNButton
@@ -109,7 +122,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 12,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   image: {
     width: 100,
