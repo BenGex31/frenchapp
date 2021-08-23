@@ -37,10 +37,9 @@ export default function SignupScreen({ navigation }) {
       if (email !== "" && password !== "") {
         await auth.createUserWithEmailAndPassword(email, password);
         const userProfile = auth.currentUser;
-        await userProfile
-          .updateProfile({
-            displayName: firstname + " " + lastname,
-          });
+        await userProfile.updateProfile({
+          displayName: firstname + " " + lastname,
+        });
       }
     } catch (error) {
       setSignupError(error.message);
