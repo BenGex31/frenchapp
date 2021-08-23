@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
 import { StyleSheet, Text, Button as RNButton } from "react-native";
+import Constants from "expo-constants";
 
 import { Button, InputField, ErrorMessage } from "../components";
 import Firebase from "../config/firebase";
@@ -147,6 +148,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#eaf1fb",
+    marginTop: Constants.statusBarHeight,
     paddingTop: 50,
     paddingHorizontal: 12,
     alignItems: "center",
