@@ -2,17 +2,36 @@
 
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import HomeScreen from "../screens/HomeScreen";
 import NewsScreen from "../screens/NewsScreen";
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function HomeStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='Home' component={HomeScreen} />
-      <Stack.Screen name='News' component={NewsScreen} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Home") {
+            iconName = focused ? "home" : "home-outline";
+          } else if (route.name === "News") {
+            iconName = focused ? "newspaper" : "newspaper-outline";
+          }
+
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: "#5a3eff",
+        tabBarInactiveTintColor: "#38d8ff",
+      })}>
+      <Tab.Screen name='Home' component={HomeScreen} />
+      <Tab.Screen name='News' component={NewsScreen} />
+    </Tab.Navigator>
   );
 }
