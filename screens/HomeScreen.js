@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import IconLogout from "react-native-vector-icons/SimpleLineIcons";
-import IconNews from "react-native-vector-icons/MaterialCommunityIcons";
 import whatsnews from "../assets/whatsnews.jpeg";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card, Button } from "react-native-elements";
@@ -54,25 +53,6 @@ export default function HomeScreen() {
               }}>
               Read all the latest news wherever you want
             </Text>
-            <Button
-              icon={
-                <IconNews
-                  style={{ marginRight: 5 }}
-                  name='newspaper'
-                  color='#ffffff'
-                  size={15}
-                />
-              }
-              buttonStyle={{
-                borderRadius: 10,
-                marginLeft: 0,
-                marginRight: 0,
-                marginBottom: 0,
-                width: 120,
-              }}
-              title='SEE NEWS'
-              onPress={() => goNewsPage()}
-            />
           </View>
         </Card>
         <View
