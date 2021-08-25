@@ -1,14 +1,12 @@
 /** @format */
 
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import HomeScreen from "../screens/HomeScreen";
 import NewsScreen from "../screens/NewsScreen";
 
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function HomeStack() {
