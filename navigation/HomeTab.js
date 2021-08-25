@@ -28,6 +28,7 @@ export default function HomeTab() {
         },
         tabBarActiveTintColor: "#5a3eff",
         tabBarInactiveTintColor: "#38d8ff",
+        tabBarActiveBackgroundColor: "#eaf1fb"
       })}>
       <Tab.Screen name='Home' component={HomeScreen} />
       <Tab.Screen name='News' component={NewsScreen} />
