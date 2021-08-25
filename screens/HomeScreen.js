@@ -2,7 +2,7 @@
 
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import IconLogout from "react-native-vector-icons/SimpleLineIcons";
 import whatsnews from "../assets/whatsnews.jpeg";
 import { LinearGradient } from "expo-linear-gradient";
@@ -15,7 +15,7 @@ const auth = Firebase.auth();
 
 export default function HomeScreen() {
   const { user } = useContext(AuthenticatedUserContext);
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
   console.log(user);
 
   const handleSignOut = async () => {
@@ -26,14 +26,11 @@ export default function HomeScreen() {
     }
   };
 
-  const goNewsPage = () => {
-    navigation.navigate("News");
-  };
-
   return (
     <LinearGradient
       colors={["#0d204b", "#5a3eff", "#38d8ff", "#0b85ff"]}
       style={styles.background}>
+      <StatusBar barStyle='dark-content' backgroundColor='#eaf1fb' />
       <View style={styles.container}>
         <Text style={styles.title}>FrenchApp{"&"}Web</Text>
         <Card containerStyle={{ backgroundColor: "#eaf1fb", borderRadius: 10 }}>
