@@ -3,6 +3,7 @@
 import React from "react";
 
 import { AuthenticatedUserProvider } from "./AuthenticatedUserProvider";
+import { NewsProvider } from "./NewsProvider";
 import RootNavigator from "./RootNavigator";
 
 /**
@@ -12,7 +13,9 @@ import RootNavigator from "./RootNavigator";
 export default function Routes() {
   return (
     <AuthenticatedUserProvider>
-      <RootNavigator />
+      <NewsProvider>
+        <RootNavigator />
+      </NewsProvider>
     </AuthenticatedUserProvider>
   );
 }
